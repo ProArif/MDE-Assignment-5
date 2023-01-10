@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:NewWebApplication="http://www.example.org/NewWebApplication">
+  <NewWebApplication:WebApplication name="OnlineNews"/>
+  <NewWebApplication:Entity name="News"/>
+  <NewWebApplication:Entity name="Author"/>
+  <NewWebApplication:Entity name="NewsCategory"/>
+  <NewWebApplication:Attribute name="news_id" isPK="true"/>
+  <NewWebApplication:Attribute name="title" dataType="text"/>
+  <NewWebApplication:Attribute name="content" dataType="text"/>
+  <NewWebApplication:Attribute name="publish_date" dataType="date"/>
+  <NewWebApplication:Attribute name="pictures" dataType="images"/>
+  <NewWebApplication:Attribute name="author_id" isPK="true"/>
+  <NewWebApplication:Attribute name="name" dataType="string"/>
+  <NewWebApplication:Attribute name="password" dataType="string"/>
+  <NewWebApplication:Attribute name="email" dataType="string"/>
+  <NewWebApplication:Attribute name="author_image" dataType="image"/>
+  <NewWebApplication:Attribute name="category_id" isPK="true"/>
+  <NewWebApplication:Attribute name="category_name" dataType="string"/>
+  <NewWebApplication:Attribute name="category_description" dataType="text"/>
+  <NewWebApplication:WebPage name="NewsPortal"/>
+</xmi:XMI>
