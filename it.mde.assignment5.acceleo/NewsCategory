@@ -1,0 +1,10 @@
+	CREATE TABLE NewsCategory (
+	 category_id (int) , category_name (string) , category_description (text) 
+	PRIMARY KEY (category_id)	 
+);
+
+SELECT  category_id, category_name, category_description FROM NewsCategory;
+
+SELECT  category_id FROM NewsCategory;
+
+SELECT  category_id, category_name, category_description FROM NewsCategory WHERE category_id = ? ;

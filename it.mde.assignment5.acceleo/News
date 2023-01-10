@@ -1,0 +1,10 @@
+	CREATE TABLE News (
+	 news_id (int) , title (text) , content (text) , publish_date (date) , pictures (images) 
+	PRIMARY KEY (news_id)	 
+);
+
+SELECT  news_id, title, content, publish_date, pictures FROM News;
+
+SELECT  news_id FROM News;
+
+SELECT  news_id, title, content, publish_date, pictures FROM News WHERE news_id = ? ;

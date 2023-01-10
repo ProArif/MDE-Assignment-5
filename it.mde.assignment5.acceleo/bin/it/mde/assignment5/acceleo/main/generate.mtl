@@ -1,0 +1,17 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/webApplication')]
+[import it::mde::assignment5::acceleo::main::generateSQL /]
+
+[template public generateElement(aWebApplication : WebApplication)]
+[comment @main/]
+[file (aWebApplication.name, false, 'UTF-8')]
+	The application name is [aWebApplication.name/]
+	This contains the following entities:
+	[for (entity : Entity | aWebApplication.entities)]
+		[entity.name/]
+		[entity.generateSQL()/]
+	[/for]
+
+	
+[/file]
+[/template]

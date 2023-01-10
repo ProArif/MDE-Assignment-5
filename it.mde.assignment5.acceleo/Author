@@ -1,0 +1,10 @@
+	CREATE TABLE Author (
+	 author_id (int) , name (string) , password (string) , email (string) , author_image (image) 
+	PRIMARY KEY (author_id)	 
+);
+
+SELECT  author_id, name, password, email, author_image FROM Author;
+
+SELECT  author_id FROM Author;
+
+SELECT  author_id, name, password, email, author_image FROM Author WHERE author_id = ? ;

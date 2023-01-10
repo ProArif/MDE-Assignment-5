@@ -1,0 +1,23 @@
+[comment encoding = UTF-8 /]
+[module generateSQL('http://www.example.org/webApplication')]
+
+
+[template public generateSQL(anEntity : Entity)]
+[comment @main/]
+[file (anEntity.name, false, 'UTF-8')]
+	CREATE TABLE [anEntity.name/] (
+	[for (it : Attribute | anEntity.attributes)separator(',')] [it.name/] ([it.type/]) [/for]
+	[for (it : Attribute | anEntity.attributes ->select(e | e.isPrimaryKey = true))]
+	PRIMARY KEY ([it.name/])	 
+	[/for]
+);
+
+SELECT [for (it : Attribute | anEntity.attributes) separator(',')] [it.name/][/for] FROM [anEntity.name/];
+
+SELECT [for (it : Attribute | anEntity.attributes ->select(e | e.isPrimaryKey = true)) separator(',')] [it.name/][/for] FROM [anEntity.name/];
+
+SELECT [for (it : Attribute | anEntity.attributes) separator(',')] [it.name/][/for] FROM [anEntity.name/] WHERE [for (it : Attribute | anEntity.attributes ->select(e | e.isPrimaryKey)) separator(',') after(';')]
+[it.name/] = ? [/for]
+
+[/file]
+[/template]
