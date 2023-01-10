@@ -1,0 +1,62 @@
+-- @path webApplication=/it.mde.assignment4.model/model/webApplication.ecore
+-- @path NewwebApplication=/it.mde.assignment4.model/model/NewwebApplication.ecore
+
+module NewsWebToMagazine;
+create OUT : NewwebApplication from IN : webApplication;
+
+
+helper context webApplication!Attribute def : attributeType() : String =
+	if self.type = 'text' then
+		true
+	else
+		false
+	endif;
+
+
+helper context NewwebApplication!ServerPage def : ServerClassType() : String = 
+	self.ServerClasses = 'Text';
+
+rule WebApp {
+	from
+		s: webApplication!WebApplication
+	to
+		t : NewwebApplication!WebApplication (
+			name <- s.name
+		)
+	
+}
+
+rule WebEntity {
+	from s: webApplication!Entity
+	to t: NewwebApplication!Entity (
+	  name <- s.name
+	  
+	)
+}
+
+rule WebAttribute {
+	from s: webApplication!Attribute
+	to t: NewwebApplication!Attribute (
+	  name <- s.name,
+	  dataType <- s.type,
+	  isPK <- s.isPrimaryKey
+	  
+	)
+}
+
+rule WebPageRule {
+	from s: webApplication!Page
+	to t: NewwebApplication!WebPage(
+		name <- s.name
+			
+	)
+}
+
+
+
+
+
+
+
+
+

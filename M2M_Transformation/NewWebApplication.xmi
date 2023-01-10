@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webApplication:WebApplication
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:webApplication="http://www.example.org/webApplication"
+    xsi:schemaLocation="http://www.example.org/webApplication NewwebApplication.ecore">
+  <entities
+      name="News">
+    <attributes
+        name="NewsId"/>
+    <attributes
+        name="NewsContent"
+        type="text"/>
+  </entities>
+  <forms name="DeletingNews"
+      method="DELETE"
+      entity="//@entities.0"/>
+  <pages name="Home.html">
+    <contents
+        name="HomePage"/>
+  </pages>
+  <pages name="Home.php">
+    <Backend
+        name="controlHome">
+      <ServerFunctions>GetLatestNews</ServerFunctions>
+      <ServerClasses>NewsHome</ServerClasses>
+    </Backend>
+  </pages>
+</webApplication:WebApplication>
